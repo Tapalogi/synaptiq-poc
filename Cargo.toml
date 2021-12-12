@@ -1,0 +1,10 @@
+[package]
+name = "synaptiq-poc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = { version = "0.4.19", features = ["serde"] }
+serde = { version = "1.0.131", features = ["derive"] }
+tapa-trait-serde = { version = "0.3.0", features = ["json", "ron"], default-features = false }
+uuid = { version = "0.8.2", features = ["v4", "serde"] }
