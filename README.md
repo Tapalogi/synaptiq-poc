@@ -116,10 +116,7 @@
   "from_id": 3,
   "to_id": 4,
   "payload": {
-    "voice_call": {
-      "channel_id": "5b8b2f4d-466d-4e3f-807e-64810d7f2634",
-      "token": "some_funky_token"
-    }
+    "voice_call": "5b8b2f4d-466d-4e3f-807e-64810d7f2634"
   }
 }
 ---
@@ -130,10 +127,7 @@
   "from_id": 3,
   "to_id": 4,
   "payload": {
-    "video_call": {
-      "channel_id": "88560b6e-062d-4250-a4e3-ea73a8344883",
-      "token": "some_funky_token"
-    }
+    "video_call": "88560b6e-062d-4250-a4e3-ea73a8344883"
   }
 }
 ---
@@ -144,10 +138,7 @@
   "from_id": 3,
   "to_id": 4,
   "payload": {
-    "live_stream": {
-      "channel_id": "a5755b6a-c9ee-4092-bf41-726e1954e3d6",
-      "token": "some_funky_token"
-    }
+    "live_stream": "a5755b6a-c9ee-4092-bf41-726e1954e3d6"
   }
 }
 ---
