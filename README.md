@@ -114,7 +114,7 @@
 {
   "timestamp": "2021-12-12T09:21:35.248796786Z",
   "from_id": 3,
-  "to_id": 4,
+  "to_id": 0,
   "payload": {
     "voice_call": "5b8b2f4d-466d-4e3f-807e-64810d7f2634"
   }
@@ -125,7 +125,7 @@
 {
   "timestamp": "2021-12-12T09:21:35.248869313Z",
   "from_id": 3,
-  "to_id": 4,
+  "to_id": 0,
   "payload": {
     "video_call": "88560b6e-062d-4250-a4e3-ea73a8344883"
   }
@@ -136,7 +136,7 @@
 {
   "timestamp": "2021-12-12T09:21:35.248931667Z",
   "from_id": 3,
-  "to_id": 4,
+  "to_id": 0,
   "payload": {
     "live_stream": "a5755b6a-c9ee-4092-bf41-726e1954e3d6"
   }
