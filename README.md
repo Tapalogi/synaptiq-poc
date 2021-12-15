@@ -5,9 +5,10 @@
 ```json
 [S1: Purge Command]
 {
-  "timestamp": "2021-12-12T09:21:35.248304222Z",
+  "timestamp": "2021-12-15T20:49:51.455478306Z",
   "from_id": 0,
   "to_id": 3,
+  "payload_kind": "command",
   "payload": {
     "command": "purge"
   }
@@ -16,12 +17,13 @@
 
 [S2: Remove Any Channel]
 {
-  "timestamp": "2021-12-12T09:21:35.248378923Z",
+  "timestamp": "2021-12-15T20:49:51.455545061Z",
   "from_id": 0,
   "to_id": 1,
+  "payload_kind": "command",
   "payload": {
     "command": {
-      "remove_channel": "05fe8fec-8cf6-4eba-a094-a960827df698"
+      "remove_channel": "0c9db79e-8000-4c1f-83e8-4fbbd748941e"
     }
   }
 }
@@ -29,13 +31,14 @@
 
 [S2: Create Private Channel]
 {
-  "timestamp": "2021-12-12T09:21:35.248440414Z",
+  "timestamp": "2021-12-15T20:49:51.455611865Z",
   "from_id": 0,
   "to_id": 3,
+  "payload_kind": "command",
   "payload": {
     "command": {
       "create_channel": {
-        "id": "93538d65-2ab5-47d0-9774-a1a684ea5866",
+        "id": "4d92d57f-99d7-4763-8f39-0100717c1136",
         "alias": "Jambang Pisang",
         "members": [
           0,
@@ -51,13 +54,14 @@
 
 [S2: Create Group Channel]
 {
-  "timestamp": "2021-12-12T09:21:35.248531343Z",
+  "timestamp": "2021-12-15T20:49:51.455681176Z",
   "from_id": 0,
   "to_id": 3,
+  "payload_kind": "command",
   "payload": {
     "command": {
       "create_channel": {
-        "id": "9e3b7e75-59a1-4b65-89c7-ab56981b1988",
+        "id": "94d2e302-a3c4-40c2-8fea-64e24530076f",
         "alias": "Kita Bersama",
         "members": [
           0,
@@ -74,13 +78,14 @@
 
 [S2: Create Broadcast Channel]
 {
-  "timestamp": "2021-12-12T09:21:35.248623136Z",
+  "timestamp": "2021-12-15T20:49:51.455758511Z",
   "from_id": 0,
   "to_id": 3,
+  "payload_kind": "command",
   "payload": {
     "command": {
       "create_channel": {
-        "id": "9c0e162a-8208-40d9-a80d-a8aaeacf5676",
+        "id": "159b35e9-b57a-4727-a0f4-497ae26e87ac",
         "alias": "Sekilas Info!",
         "members": [
           0,
@@ -97,13 +102,14 @@
 
 [S3: Chat Message]
 {
-  "timestamp": "2021-12-12T09:21:35.248715775Z",
+  "timestamp": "2021-12-15T20:49:51.455807926Z",
   "from_id": 3,
-  "to_id": 1,
+  "to_id": 0,
+  "payload_kind": "message",
   "payload": {
     "message": {
-      "id": "0599750d-bad5-42ec-b668-12369014a36f",
-      "timestamp": "2021-12-12T09:21:35.248713489Z",
+      "channel_id": "6692c9da-e7da-4883-95e9-62bfcf6241a2",
+      "timestamp": "2021-12-15T20:49:51.455807101Z",
       "content": "Hello Jambang Pisang!"
     }
   }
@@ -112,33 +118,45 @@
 
 [S4: Voice Call]
 {
-  "timestamp": "2021-12-12T09:21:35.248796786Z",
+  "timestamp": "2021-12-15T20:49:51.455851570Z",
   "from_id": 3,
   "to_id": 0,
+  "payload_kind": "voice_call",
   "payload": {
-    "voice_call": "5b8b2f4d-466d-4e3f-807e-64810d7f2634"
+    "voice_call": {
+      "channel_id": "31f5e389-8f43-426d-8224-60f66f65a4d3",
+      "token": "some_funky_token"
+    }
   }
 }
 ---
 
 [S5: Video Call]
 {
-  "timestamp": "2021-12-12T09:21:35.248869313Z",
+  "timestamp": "2021-12-15T20:49:51.455895035Z",
   "from_id": 3,
   "to_id": 0,
+  "payload_kind": "video_call",
   "payload": {
-    "video_call": "88560b6e-062d-4250-a4e3-ea73a8344883"
+    "video_call": {
+      "channel_id": "2a4bc03d-2cb2-4f3e-b6a9-dee1bc4e8fd8",
+      "token": "some_funky_token"
+    }
   }
 }
 ---
 
 [S6: Live Stream]
 {
-  "timestamp": "2021-12-12T09:21:35.248931667Z",
+  "timestamp": "2021-12-15T20:49:51.455936155Z",
   "from_id": 3,
   "to_id": 0,
+  "payload_kind": "live_stream",
   "payload": {
-    "live_stream": "a5755b6a-c9ee-4092-bf41-726e1954e3d6"
+    "live_stream": {
+      "channel_id": "7cbdd2c0-4ad4-4fdf-9056-1220a4c9d519",
+      "token": "some_funky_token"
+    }
   }
 }
 ---
