@@ -3,9 +3,11 @@ use serde::{Deserialize, Serialize};
 use tapa_trait_serde::{IJsonSerializable, IRonSerializable};
 use uuid::Uuid;
 
-#[derive(Clone, Copy, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize, PartialEq, Eq)]
+#[derive(
+    Clone, Copy, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize, PartialEq, Eq,
+)]
 #[serde(rename_all = "snake_case")]
-pub enum SynaptiqChannelKind {
+pub enum SqChannelKind {
     Broadcast,
     Group,
     PrivateMessage,
@@ -13,47 +15,45 @@ pub enum SynaptiqChannelKind {
 
 #[derive(Clone, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize)]
 #[serde(rename_all = "snake_case")]
-pub struct SynaptiqChannelInfo {
+pub struct SqNewChannelInfo {
     pub id: Uuid,
     pub alias: String,
-    pub members: Vec<u64>,
-    pub kind: SynaptiqChannelKind,
+    pub members: Vec<i32>,
+    pub kind: SqChannelKind,
 }
 
 #[derive(Clone, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize)]
 #[serde(rename_all = "snake_case")]
-pub enum SynaptiqCommandMessage {
+pub enum SqCommandMessage {
     Purge,
-    CreateChannel(SynaptiqChannelInfo),
+    NewChannel(SqNewChannelInfo),
     RemoveChannel(Uuid),
 }
 
 #[derive(Clone, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize)]
 #[serde(rename_all = "snake_case")]
-pub struct SynaptiqMessage {
-    pub channel_id: Uuid,
-    pub timestamp: DateTime<Utc>,
+pub struct SqMessage {
     pub content: String,
+    pub media_url: Option<String>,
 }
 
 #[derive(Clone, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize)]
 #[serde(rename_all = "snake_case")]
-pub struct SynaptiqCallInfo {
-    pub channel_id: Uuid,
-    pub token: String,
+pub struct SqCallInfo {
+    pub call_token: String,
 }
 
 #[derive(Clone, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize)]
 #[serde(rename_all = "snake_case")]
-pub enum SynaptiqPayload {
-    Command(SynaptiqCommandMessage),
-    LiveStream(SynaptiqCallInfo),
-    Message(SynaptiqMessage),
-    VideoCall(SynaptiqCallInfo),
-    VoiceCall(SynaptiqCallInfo),
+pub enum SqPayload {
+    Command(SqCommandMessage),
+    LiveStream(SqCallInfo),
+    Message(SqMessage),
+    VideoCall(SqCallInfo),
+    VoiceCall(SqCallInfo),
 }
 
-impl SynaptiqPayload {
+impl SqPayload {
     pub fn get_payload_kind(&self) -> String {
         match self {
             Self::Command(_) => "command".into(),
@@ -66,10 +66,12 @@ impl SynaptiqPayload {
 }
 
 #[derive(Clone, Debug, Deserialize, IJsonSerializable, IRonSerializable, Serialize)]
-pub struct SynaptiqProtocol {
-    pub timestamp: DateTime<Utc>,
-    pub from_id: u64,
-    pub to_id: u64,
-    pub payload_kind: String,
-    pub payload: SynaptiqPayload,
+#[serde(rename_all = "snake_case")]
+pub struct SqProtocol {
+    pub id: Uuid,
+    pub channel_id: Uuid,
+    pub sender_id: i32,
+    pub sent_timestamp: DateTime<Utc>,
+    pub kind: String,
+    pub payload: SqPayload,
 }
